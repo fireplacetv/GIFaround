@@ -5,7 +5,7 @@
  *  - Example Visualizations - https://github.com/looker/custom_visualizations_v2/tree/master/src/examples
  **/
 
-import *  from "https://code.jquery.com/jquery-2.2.4.min.js";
+import {$} from "https://code.jquery.com/jquery-2.2.4.min.js";
   
 const visObject = {
   // import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
