@@ -40,15 +40,28 @@ const visObject = {
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
-
+    
     console.log(looker_data);
-    // const credentials = await import("http://sonic.net/~derrick/temp/giphy_creds.json");
     
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.giphy.com/v1/gifs/random");
-    xhr.setRequestHeader("api_key","ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr");
-    xhr.send();
-        
+    xhr.open("GET", "https://api.giphy.com/v1/gifs/random?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr");
+    xhr.responseType = 'text';
+
+    xhr.onload = function () {
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status === 200) {
+                var giphy_response = JSON.parse(xhr.response);
+                console.log(giphy_response.data.images.original.url)
+
+                var viz_gif = document.createElement("IMG");
+                viz_gif.setAttribute("src", giphy_response.data.images.original.url);
+                element.append(viz_gif);
+            }
+        }
+    };
+
+    xhr.send(null);
+    
     doneRendering()
   }
 };
