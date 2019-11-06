@@ -43,6 +43,7 @@ const visObject = {
   
     console.log("updateAsync");
     console.log(config);
+    console.log(config.result_index);
     var search_string = Object.values(looker_data[0])[0]["value"];
 
     var xhr = new XMLHttpRequest();
