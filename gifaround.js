@@ -8,7 +8,6 @@
 import    "https://code.jquery.com/jquery-2.2.4.min.js";
 import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
 import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
-const credentials = import("http://sonic.net/~derrick/temp/giphy_creds.json");
 
 const visObject = {
  /**
@@ -47,6 +46,7 @@ const visObject = {
         height = 500 - margin.top - margin.bottom;
 
     console.log(looker_data);
+    const credentials = import("http://sonic.net/~derrick/temp/giphy_creds.json");
     
     var xhr = $.get("https://api.giphy.com/v1/gifs/random",
                     {"api_key": credentials.api_key});
