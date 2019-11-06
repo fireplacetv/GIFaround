@@ -50,7 +50,7 @@ const visObject = {
     var request_url = "https://api.giphy.com/v1/gifs/search" +
                       "?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr" +
                       "&q=" + search_string + 
-                      "&limit=1" +
+                      "&limit=" + config.result_index +
                       "&rating=g";
     console.log(request_url);
     xhr.open("GET", request_url);
