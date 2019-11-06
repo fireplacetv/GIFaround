@@ -42,10 +42,10 @@ const visObject = {
         height = 500 - margin.top - margin.bottom;
 
     console.log(looker_data);
-    const credentials = import("http://sonic.net/~derrick/temp/giphy_creds.json");
+    // const credentials = await import("http://sonic.net/~derrick/temp/giphy_creds.json");
     
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://api.giphy.com/v1/gifs/random");
+    xhr.open("GET", "https://api.giphy.com/v1/gifs/random");
     xhr.setRequestHeader("api_key","ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr");
     xhr.send();
         
