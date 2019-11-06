@@ -28,6 +28,9 @@ const visObject = {
   * data is passed to it.
   **/
   create: function(element, config){
+    var viz_gif = document.createElement("IMG");
+    viz_gif.setAttribute("name", "gif");
+    element.append(viz_gif);
   },
 
  /**
@@ -40,21 +43,18 @@ const visObject = {
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   
-    console.log(looker_data);
-    
+    var search_string = Object.values(looker_data[0])[0]["value"];
+
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.giphy.com/v1/gifs/random?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr");
+    xhr.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr&q="+ search_string + "&limit=1");
     xhr.responseType = 'text';
 
     xhr.onload = function () {
       if (xhr.readyState === xhr.DONE) {
         if (xhr.status === 200) {
           var giphy_response = JSON.parse(xhr.response);
-          console.log(giphy_response.data.images.original.url)
-
-          var viz_gif = document.createElement("IMG");
-          viz_gif.setAttribute("src", giphy_response.data.images.original.url);
-          element.append(viz_gif);
+          var gif = document.getElementsByName("gif")[0];
+          gif.setAttribute("src", giphy_response.data[0].images.original.url);
         }
       }
     };
