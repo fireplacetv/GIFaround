@@ -26,9 +26,6 @@ const visObject = {
     var viz_gif = document.createElement("IMG");
     viz_gif.setAttribute("name", "gif");
     element.append(viz_gif);
-
-    console.log("create");
-    console.log(config);
   },
 
  /**
@@ -41,9 +38,6 @@ const visObject = {
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   
-    console.log("updateAsync");
-    console.log(config);
-    console.log(config.result_index);
     var search_string = Object.values(looker_data[0])[0]["value"];
 
     var xhr = new XMLHttpRequest();
@@ -61,7 +55,7 @@ const visObject = {
         if (xhr.status === 200) {
           var giphy_response = JSON.parse(xhr.response);
           var gif = document.getElementsByName("gif")[0];
-          gif.setAttribute("src", giphy_response.data[0].images.original.url);
+          gif.setAttribute("src", giphy_response.data.slice(-1)[0].images.original.url);
         }
       }
     };
