@@ -7,7 +7,7 @@
 
 
 const visObject = {
-  // import    "https://code.jquery.com/jquery-2.2.4.min.js";
+  import    "https://code.jquery.com/jquery-2.2.4.min.js";
   // import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
   // import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
 
