@@ -28,7 +28,6 @@ const visObject = {
   * data is passed to it.
   **/
   create: function(element, config){
-    element.innerHTML = "<h1>Ready to render!</h1>";
   },
 
  /**
@@ -38,9 +37,9 @@ const visObject = {
   updateAsync: function(looker_data, element, config, queryResponse, details, doneRendering){
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
-    
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+  
     console.log(looker_data);
     
     var xhr = new XMLHttpRequest();
@@ -48,16 +47,16 @@ const visObject = {
     xhr.responseType = 'text';
 
     xhr.onload = function () {
-        if (xhr.readyState === xhr.DONE) {
-            if (xhr.status === 200) {
-                var giphy_response = JSON.parse(xhr.response);
-                console.log(giphy_response.data.images.original.url)
+      if (xhr.readyState === xhr.DONE) {
+        if (xhr.status === 200) {
+          var giphy_response = JSON.parse(xhr.response);
+          console.log(giphy_response.data.images.original.url)
 
-                var viz_gif = document.createElement("IMG");
-                viz_gif.setAttribute("src", giphy_response.data.images.original.url);
-                element.append(viz_gif);
-            }
+          var viz_gif = document.createElement("IMG");
+          viz_gif.setAttribute("src", giphy_response.data.images.original.url);
+          element.append(viz_gif);
         }
+      }
     };
 
     xhr.send(null);
