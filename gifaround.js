@@ -5,11 +5,12 @@
  *  - Example Visualizations - https://github.com/looker/custom_visualizations_v2/tree/master/src/examples
  **/
 
-import    "https://code.jquery.com/jquery-2.2.4.min.js";
-import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
-import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
 
 const visObject = {
+  // import    "https://code.jquery.com/jquery-2.2.4.min.js";
+  // import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
+  // import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
+
  /**
   * Configuration options for your visualization. In Looker, these show up in the vis editor
   * panel but here, you can just manually set your default values in the code.
