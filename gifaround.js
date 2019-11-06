@@ -11,15 +11,10 @@ const visObject = {
   * panel but here, you can just manually set your default values in the code.
   **/
   options: {
-    first_option: {
-      type: "string",
-      label: "My First Option",
-      default: "Default Value"
-    },
-    second_option: {
+    result_index: {
       type: "number",
-      label: "My Second Option",
-      default: 42
+      label: "Result Index",
+      default: 1
     }
   },
  
