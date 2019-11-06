@@ -1,4 +1,4 @@
-# Gifaround
+# GIFaround
 
 Gifaround is a custom visualization for Looker that returns an animated GIF from GIPHY based
 on the first item in your results.
