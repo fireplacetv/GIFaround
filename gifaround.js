@@ -46,7 +46,13 @@ const visObject = {
     var search_string = Object.values(looker_data[0])[0]["value"];
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr&q="+ search_string + "&limit=1&rating=PG-13");
+    var request_url = "https://api.giphy.com/v1/gifs/search" +
+                      "?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr" +
+                      "&q=" + search_string + 
+                      "&limit=1" +
+                      "&rating=g";
+    console.log(request_url);
+    xhr.open("GET", request_url);
     xhr.responseType = 'text';
 
     xhr.onload = function () {
