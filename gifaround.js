@@ -5,12 +5,7 @@
  *  - Example Visualizations - https://github.com/looker/custom_visualizations_v2/tree/master/src/examples
  **/
 
-import {$} from "https://code.jquery.com/jquery-2.2.4.min.js";
-  
 const visObject = {
-  // import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
-  // import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
-
  /**
   * Configuration options for your visualization. In Looker, these show up in the vis editor
   * panel but here, you can just manually set your default values in the code.
@@ -49,14 +44,11 @@ const visObject = {
     console.log(looker_data);
     const credentials = import("http://sonic.net/~derrick/temp/giphy_creds.json");
     
-    var xhr = $.get("https://api.giphy.com/v1/gifs/random",
-                    {"api_key": credentials.api_key});
-    xhr.done(function(xhr_data) {
-      var viz_gif = document.createElement("IMG");
-      viz_gif.setAttribute("src", xhr_data.data.images.original.url);
-      element.append(viz_gif);
-    });    
-    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://api.giphy.com/v1/gifs/random");
+    xhr.setRequestHeader("api_key","ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr");
+    xhr.send();
+        
     doneRendering()
   }
 };
