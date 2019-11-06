@@ -8,7 +8,7 @@
 import    "https://code.jquery.com/jquery-2.2.4.min.js";
 import    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js";
 import    "https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js";
-const credentials = import("./credentials.json");
+const credentials = import("http://sonic.net/~derrick/temp/giphy_creds.json");
 
 const visObject = {
  /**
