@@ -1,5 +1,5 @@
 /**
- * Welcome to the Looker Visualization Builder! Please refer to the following resources 
+ * Welcome to the Looker Visualization Builder! Please refer to the following resources
  * to help you write your visualization:
  *  - API Documentation - https://github.com/looker/custom_visualizations_v2/blob/master/docs/api_reference.md
  *  - Example Visualizations - https://github.com/looker/custom_visualizations_v2/tree/master/src/examples
@@ -11,13 +11,18 @@ const visObject = {
   * panel but here, you can just manually set your default values in the code.
   **/
   options: {
+    search_terms: {
+      type: "string",
+      label: "Additional Search Terms",
+      default: ""
+    },
     result_index: {
       type: "number",
       label: "Result Index",
       default: 1
     }
   },
- 
+
  /**
   * The create function gets called when the visualization is mounted but before any
   * data is passed to it.
@@ -37,13 +42,13 @@ const visObject = {
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
-  
+
     var search_string = Object.values(looker_data[0])[0]["value"];
 
     var xhr = new XMLHttpRequest();
     var request_url = "https://api.giphy.com/v1/gifs/search" +
                       "?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr" +
-                      "&q=" + search_string + 
+                      "&q=" + config.search_terms + " " + search_string +
                       "&limit=" + config.result_index +
                       "&rating=g";
     console.log(request_url);
@@ -61,7 +66,7 @@ const visObject = {
     };
 
     xhr.send(null);
-    
+
     doneRendering()
   }
 };
