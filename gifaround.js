@@ -31,6 +31,11 @@ const visObject = {
     var viz_gif = document.createElement("IMG");
     viz_gif.setAttribute("name", "gif");
     element.append(viz_gif);
+      
+    var viz_title = document.createElement("DIV");
+    viz_title.setAttribute("name", "title-div");
+    viz_title.setAttribute("style", "font-size: 18pt; font-family: sans-serif; width:100%; text-align:center;");
+    element.append(viz_title);
   },
 
  /**
@@ -43,12 +48,16 @@ const visObject = {
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-    var search_string = Object.values(looker_data[0])[0]["value"];
+    var result_string = Object.values(looker_data[0])[0]["value"];
+    
+    var title_div = document.getElementsByName("title-div")[0];
+    var title_text = document.createTextNode(result_string);
+    title_div.appendChild(title_text);
 
     var xhr = new XMLHttpRequest();
     var request_url = "https://api.giphy.com/v1/gifs/search" +
                       "?api_key=ITAuSlrn0baNIHP6x3IMIMJxZHNiuLKr" +
-                      "&q=" + config.search_terms + " " + search_string +
+                      "&q=" + config.search_terms + " " + result_string +
                       "&limit=" + config.result_index +
                       "&rating=g";
     console.log(request_url);
