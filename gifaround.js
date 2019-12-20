@@ -28,14 +28,14 @@ const visObject = {
   * data is passed to it.
   **/
   create: function(element, config){
+    var viz_title = document.createElement("DIV");
+    viz_title.setAttribute("name", "title-div");
+    viz_title.setAttribute("style", "font-size: 18pt; font-family: sans-serif; width:100%;");
+    element.append(viz_title);
+
     var viz_gif = document.createElement("IMG");
     viz_gif.setAttribute("name", "gif");
     element.append(viz_gif);
-      
-    var viz_title = document.createElement("DIV");
-    viz_title.setAttribute("name", "title-div");
-    viz_title.setAttribute("style", "font-size: 18pt; font-family: sans-serif; width:100%; text-align:center;");
-    element.append(viz_title);
   },
 
  /**
@@ -51,8 +51,7 @@ const visObject = {
     var result_string = Object.values(looker_data[0])[0]["value"];
     
     var title_div = document.getElementsByName("title-div")[0];
-    var title_text = document.createTextNode(result_string);
-    title_div.appendChild(title_text);
+    title_div.innerHTML = result_string;
 
     var xhr = new XMLHttpRequest();
     var request_url = "https://api.giphy.com/v1/gifs/search" +
