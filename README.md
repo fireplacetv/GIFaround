@@ -5,7 +5,7 @@ on the first item in your results.
 
 ## Installation
 
-1. Go to https://getaround.looker.com/admin/visualizations and click Add New Visualization.
+1. Go to https://[your-instance].looker.com/admin/visualizations and click Add New Visualization.
 2. In the Main field, link to https://fireplacetv.github.io/JOIN2019/gifaround.js
 3. Save changes
 
